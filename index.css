@@ -3,8 +3,6 @@
   width: 700px;
   border: 1px solid black;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr)
 }
 
 /* .tile {
@@ -13,14 +11,22 @@
   width: 100px
 } */
 
-.tile:hover{
-  background: pink;
+.moused {
+  background: pink
 }
+
+/* .tile:hover{
+  background: pink;
+} */
 
 .flex-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.blue {
+  background: purple;
 }
 
