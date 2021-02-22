@@ -1,7 +1,6 @@
 const container = document.querySelector('.container');
 
-// let startingTileAmount = prompt('How many tiles do you want?', 5);
-let startingTileAmount = 64;
+let startingTileAmount = 10;
 
 container.style.cssText = `grid-template-rows: repeat(${startingTileAmount}, 1fr); grid-template-columns: repeat(${startingTileAmount}, 1fr);`
 
@@ -14,12 +13,37 @@ function divMaker(num) {
   }
 }
 
-divMaker(startingTileAmount);//placement of this matters, remember to ask matt?
+divMaker(startingTileAmount);//placement of this matters, remember to ask matt? also when to push origin master
 
-const tiles = document.querySelectorAll('.tile');
+let tiles = document.querySelectorAll('.tile');
 
 tiles.forEach((tile) => {
     tile.addEventListener('mouseover', () => {
-      tile.classList.add('moused');
+      // tile.classList.add('moused');//adds css class
+      tile.style.cssText = `background: rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;// tile random RGB value
+      // tile.style.cssText = `background: rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, ${Math.random()})`;
     })
   });
+
+const refresh = document.getElementById('refresh');
+
+refresh.addEventListener('click', () => {
+  startingTileAmount = parseInt(prompt('What size grid?', 10));
+  while(startingTileAmount > 64) {
+    startingTileAmount = parseInt(prompt('Please choose a number between 1 and 64'), 10);
+  }
+  container.querySelectorAll('.tile').forEach(tile => tile.remove());
+  container.style.cssText = `grid-template-rows: repeat(${startingTileAmount}, 1fr); grid-template-columns: repeat(${startingTileAmount}, 1fr);`;
+  divMaker(startingTileAmount);
+  tiles = document.querySelectorAll('.tile');
+  tiles.forEach((tile) => {
+    tile.addEventListener('mouseover', () => {
+      // tile.classList.add('moused');//adds css class
+      tile.style.cssText = `background: rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`; //random RGB value
+      // tile.style.cssText = `background: rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, ${Math.random()})`;
+    });
+  });
+});
+
+refresh.style.cssText = `background: rgb(${Math.random() * 250}, ${Math.random() * 250}, ${Math.random() * 250})`;
+

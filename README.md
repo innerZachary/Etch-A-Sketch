@@ -29,3 +29,16 @@ Opaque to Marie
 
 Generally improve appearance with Ayana's help.
 
+2/21/2021
+Got the reset button working correctly.
+
+Added RGB and RGBA randomizer.
+
+Control on number selector.
+
+Still want to add:
+  Eraser
+  Maybe a slider to select the size rather than a prompt?
+  Opaque hidden picture mode.
+  Improved appearance
+
