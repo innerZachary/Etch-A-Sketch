@@ -9,6 +9,7 @@ function divMaker(num) {
     let tile = document.createElement('div');
     tile.classList = 'tile'; //className vs classList?
     // tile.className = 'tile';
+    tile.style.background = 'rgb(255,255,255)';
     container.appendChild(tile)
   }
 }
@@ -20,8 +21,9 @@ let tiles = document.querySelectorAll('.tile');
 tiles.forEach((tile) => {
     tile.addEventListener('mouseover', () => {
       // tile.classList.add('moused');//adds css class
-      tile.style.cssText = `background: rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;// tile random RGB value
+      // tile.style.cssText = `background: rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;// tile random RGB value
       // tile.style.cssText = `background: rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, ${Math.random()})`;
+      tile.style.background = blacker(tile.style.background);
     })
   });
 
@@ -39,11 +41,19 @@ refresh.addEventListener('click', () => {
   tiles.forEach((tile) => {
     tile.addEventListener('mouseover', () => {
       // tile.classList.add('moused');//adds css class
-      tile.style.cssText = `background: rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`; //random RGB value
+      // tile.style.cssText = `background: rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`; //random RGB value
       // tile.style.cssText = `background: rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, ${Math.random()})`;
+      tile.style.background = blacker(tile.style.background);
     });
   });
 });
 
 refresh.style.cssText = `background: rgb(${Math.random() * 250}, ${Math.random() * 250}, ${Math.random() * 250})`;
 
+function blacker (style) {
+  let start = style.indexOf('(') + 1;
+  let end = style.indexOf(',');
+  let value = style.slice(start, end);
+  let newValue = value - 28.34;
+  return `rgb(${newValue},${newValue},${newValue})`
+}

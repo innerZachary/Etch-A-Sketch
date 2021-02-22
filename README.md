@@ -37,8 +37,11 @@ Added RGB and RGBA randomizer.
 Control on number selector.
 
 Still want to add:
-  Eraser
+  Eraser - mousedown + mouse over?
   Maybe a slider to select the size rather than a prompt?
   Opaque hidden picture mode.
   Improved appearance
 
+2/22/2021
+
+Added Shades of Grey ;)
